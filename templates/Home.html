@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/icon.ico">
+
+    <title>Harsh's Portfolio</title>
+    
+   
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    {% load static %}
+    <link rel="stylesheet" href="/static/home.css">
+</head>
+<body>
+    <!-- header -->
+    <header class="header">
+        <a href="#Home" class="logo">Harsh</a>
+        <i class="bx bx-menu" id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="#Home" class="active">Home</a>
+            <a href="#About">About</a>
+            <a href="#Work">Work</a>
+            <a href="#Contact">Contact</a>
+
+        </nav>
+    </header>
+    
+    
+      
+    <!-- Home section Design -->
+     <section class="home" id="Home">
+        {% for message in messages %}
+        <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        Message -> {{message}}
+        </div> 
+    {% endfor %}
+        <div class="home-content">
+            <h3>Hello,It's me</h3>
+            <h1>Harsh Arora</h1>
+            <h3>And I am a <span class="multiple-text"></span></h3>
+            <p>I Beleive in <strong>"People don't care about what you say, they care about what you build." </strong> - Mark Zuckerberg </p>
+            <div class="social-media">
+                <a href="https://www.linkedin.com/in/harsh-arora-90844b1b7/" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                <a href="mailto:harsh.official995@gmail.com"><i class='bx bxl-gmail'></i></a>
+            </div>
+            <a href="/static/harsh-resume.pdf" class="btn" download>Download CV</a>
+        </div>
+        <div class="home-img">
+            <img src="/static/Harsh.png" alt="">
+        </div>
+     </section>
+
+
+     <!-- abount section -->
+
+     <section class="about" id="About">
+         <div class="about-img">
+             <img src="/static/about.gif" alt="">
+            </div>
+            <div class="about-content">
+                <h2 class="heading">About <Span>ME</Span></h2>
+                <h3>Full Stack Developer</h3>
+                <p>
+                Hey! As a Full Stack Web-Developer,I love to craft websites from scratch.
+                With my skills and Knowledge in both backend and frontend,I tend to create a perfect mix of Design
+                and technical expertise .Here , you'll get to know about all my projects. 
+                So scroll down and have a look.&#128516;
+            </p>
+        </div>
+     </section>
+     <!-- work section -->
+     <section class="work" id="Work">
+        <h2 class="heading">Latest <span>Project</span></h2>
+
+        <div class="work-container">
+            {% for p in projs %}
+            <div class="work-box">
+                <img src="/media/{{p.photo}}" alt="">
+                <div class="work-layer">
+                    <h4>{{p.projectName}}</h4>
+                    <p>{{p.info}}</p>
+                    <a href="{{p.Link}}" target="_blank"><i class='bx bx-link-external'></i></a>
+                </div>
+            </div>
+            {% endfor %}
+
+
+        </div>
+     </section>
+     <!-- Contact Section -->
+
+
+     <section class="contact" id="Contact">
+        <h2 class="heading">Contact <span>Me!</span></h2>
+        <form action="#Home" method="post">
+            {% csrf_token %}
+            <div class="input-box">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+            </div>
+            <div class="input-box">
+                <input type="tel" name="number" placeholder="Phone Number"required>
+                <input type="text" name="subject" placeholder="Email Subject" required>
+            </div>
+            
+                <textarea  id="" cols="30" name="message" rows="10" placeholder="Message"required></textarea>
+                <input type="submit" value="Send" class="btn">
+         
+        </form>
+     </section>
+
+     <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2023 By Harsh | ALL Rights Reserved.</p>
+        </div>
+        <div class="footer-icon-top">
+            <a href="#Home"><i class='bx bxs-up-arrow-circle'></i></a>
+        </div>
+     </footer>
+
+     <!-- scroll reveal -->
+     <script src="https://unpkg.com/scrollreveal"></script>
+     <!-- typed js -->
+     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+     <script src="/static/pf.js"></script>
+</body>
+</html>
