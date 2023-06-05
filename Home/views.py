@@ -27,3 +27,6 @@ def Home(request):
     context={'projs':projs}
 
     return render(request,'index.html',context)
+
+def handling_404(request,exception):
+    return render(request,'error.html',{})

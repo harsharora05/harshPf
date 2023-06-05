@@ -26,3 +26,5 @@ urlpatterns = [
     path('adminHarshPortfolio17052002@052001/', admin.site.urls),
     path('', include('Home.urls'))
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'Home.views.handling_404'
