@@ -26,4 +26,4 @@ def Home(request):
 
     context={'projs':projs}
 
-    return render(request,'Home.html',context)
+    return render(request,'index.html',context)
